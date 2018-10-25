@@ -30,7 +30,30 @@ function invertCase(text) {
 }
 
 
+/*
+* Runs a selection sort on an the given array. If you don't know the selection sort
+* algorithm look it up! It may also have a few small bugs...
+*/
+function selectionSort(arr){
+  let minIdx, temp, 
+      len = arr.length;
+  for(let i = 1; i < len; i++){
+    minIdx = i;
+    for(let j = i-1; j<len; j++){
+       if(arr[j]>arr[minIdx]){
+          minIdx = j;
+       }
+    }
+    temp = arr[i];
+    arr[i] = arr[minIdx];
+    arr[minIdx] = temp;
+  }
+  return arr;
+}
+    
+
+
 
 //Make functions available to tester.
 //This syntax will not work in the browser
-export {greet, invertCase};
+export {greet, invertCase, selectionSort};
